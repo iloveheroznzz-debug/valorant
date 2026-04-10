@@ -6,35 +6,39 @@
 <title>VALORANT PRO SITE</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #0f1923;
+  font-family: 'Orbitron', sans-serif;
+  background: radial-gradient(circle at top, #1a2733, #0f1923);
   color: #fff;
 }
 
 header {
-  background: linear-gradient(90deg, #ff4655, #ff7a85);
-  padding: 20px;
+  background: linear-gradient(90deg, #ff4655, #ff1f3d);
+  padding: 25px;
   text-align: center;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
+  box-shadow: 0 0 25px rgba(255,70,85,0.6);
 }
 
 nav {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
   padding: 15px;
 }
 
 nav button {
-  background: transparent;
+  background: rgba(255,255,255,0.05);
   border: 2px solid #ff4655;
   color: white;
-  padding: 10px 20px;
-  border-radius: 10px;
+  padding: 10px 18px;
+  border-radius: 12px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -42,25 +46,42 @@ nav button {
 nav button:hover {
   background: #ff4655;
   transform: scale(1.1);
+  box-shadow: 0 0 15px #ff4655;
 }
 
 .container {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 30px;
 }
 
 .card {
-  background: #1f2731;
+  position: relative;
+  width: 350px;
   border-radius: 20px;
-  padding: 30px;
-  width: 300px;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(255,70,85,0.3);
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0,0,0,0.8);
   animation: fade 0.5s ease-in-out;
 }
 
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.4);
+  z-index: 1;
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: 25px;
+}
+
 .card h2 {
+  text-align: center;
   color: #ff4655;
 }
 
@@ -70,13 +91,14 @@ ul {
 }
 
 li {
-  padding: 5px;
+  padding: 8px;
+  text-align: center;
   transition: 0.3s;
 }
 
 li:hover {
   color: #ff4655;
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 @keyframes fade {
@@ -86,7 +108,7 @@ li:hover {
 
 footer {
   text-align: center;
-  padding: 15px;
+  padding: 20px;
   color: #aaa;
 }
 </style>
@@ -94,7 +116,7 @@ footer {
 
 <body>
 
-<header>MELHORES COMPS VALORANT</header>
+<header>VALORANT PRO COMPS</header>
 
 <nav>
   <button onclick="showMap('ascent')">Ascent</button>
@@ -105,33 +127,49 @@ footer {
 </nav>
 
 <div class="container">
-  <div class="card" id="content">
-    <h2>Escolha um mapa</h2>
+  <div class="card" id="card">
+    <div class="card-content" id="content">
+      <h2>Escolha um mapa</h2>
+    </div>
   </div>
 </div>
 
-<footer>
-
-
-</footer>
+<footer>Site nível pro player 🔥</footer>
 
 <script>
 function showMap(map) {
   const data = {
-    ascent: ["Jett","Omen","Sova","Killjoy","KAY/O"],
-    bind: ["Raze","Brimstone","Skye","Cypher","Viper"],
-    haven: ["Jett","Omen","Sova","Killjoy","Breach"],
-    split: ["Raze","Omen","Cypher","Skye","Killjoy"],
-    icebox: ["Jett","Viper","Sova","Killjoy","Sage"]
+    ascent: {
+      agents: ["Jett","Omen","Sova","Killjoy","KAY/O"],
+      img: "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt9c3fbd77bff1c7f4/5eb26f538c0f6e4a9c4b4e59/ascent.jpg"
+    },
+    bind: {
+      agents: ["Raze","Brimstone","Skye","Cypher","Viper"],
+      img: "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt8b7b3b2f06e8c5a6/5eb26f538c0f6e4a9c4b4e58/bind.jpg"
+    },
+    haven: {
+      agents: ["Jett","Omen","Sova","Killjoy","Breach"],
+      img: "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt0c2d7e5a1b2e7c6c/5eb26f538c0f6e4a9c4b4e5a/haven.jpg"
+    },
+    split: {
+      agents: ["Raze","Omen","Cypher","Skye","Killjoy"],
+      img: "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt9f6c1c9e2e3e9a91/5eb26f538c0f6e4a9c4b4e5b/split.jpg"
+    },
+    icebox: {
+      agents: ["Jett","Viper","Sova","Killjoy","Sage"],
+      img: "https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt5a674b2e4e7e3f2c/5ff8a9b0c3b7f84a9c5c0d8a/icebox.jpg"
+    }
   };
 
   let html = `<h2>${map.toUpperCase()}</h2><ul>`;
-  data[map].forEach(agent => {
+  data[map].agents.forEach(agent => {
     html += `<li>${agent}</li>`;
   });
   html += "</ul>";
 
   document.getElementById("content").innerHTML = html;
+  document.getElementById("card").style.setProperty('--bg', `url(${data[map].img})`);
+  document.getElementById("card").style.setProperty('background', `url(${data[map].img}) center/cover no-repeat`);
 }
 </script>
 
