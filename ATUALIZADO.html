@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VALORANT PRO SITE</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f1923;
+  color: #fff;
+}
+
+header {
+  background: linear-gradient(90deg, #ff4655, #ff7a85);
+  padding: 20px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+}
+
+nav button {
+  background: transparent;
+  border: 2px solid #ff4655;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+nav button:hover {
+  background: #ff4655;
+  transform: scale(1.1);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  background: #1f2731;
+  border-radius: 20px;
+  padding: 30px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255,70,85,0.3);
+  animation: fade 0.5s ease-in-out;
+}
+
+.card h2 {
+  color: #ff4655;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 5px;
+  transition: 0.3s;
+}
+
+li:hover {
+  color: #ff4655;
+  transform: scale(1.1);
+}
+
+@keyframes fade {
+  from {opacity:0; transform: translateY(20px);} 
+  to {opacity:1; transform: translateY(0);} 
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  color: #aaa;
+}
+</style>
+</head>
+
+<body>
+
+<header>MELHORES COMPS VALORANT</header>
+
+<nav>
+  <button onclick="showMap('ascent')">Ascent</button>
+  <button onclick="showMap('bind')">Bind</button>
+  <button onclick="showMap('haven')">Haven</button>
+  <button onclick="showMap('split')">Split</button>
+  <button onclick="showMap('icebox')">Icebox</button>
+</nav>
+
+<div class="container">
+  <div class="card" id="content">
+    <h2>Escolha um mapa</h2>
+  </div>
+</div>
+
+<footer>
+
+
+</footer>
+
+<script>
+function showMap(map) {
+  const data = {
+    ascent: ["Jett","Omen","Sova","Killjoy","KAY/O"],
+    bind: ["Raze","Brimstone","Skye","Cypher","Viper"],
+    haven: ["Jett","Omen","Sova","Killjoy","Breach"],
+    split: ["Raze","Omen","Cypher","Skye","Killjoy"],
+    icebox: ["Jett","Viper","Sova","Killjoy","Sage"]
+  };
+
+  let html = `<h2>${map.toUpperCase()}</h2><ul>`;
+  data[map].forEach(agent => {
+    html += `<li>${agent}</li>`;
+  });
+  html += "</ul>";
+
+  document.getElementById("content").innerHTML = html;
+}
+</script>
+
+</body>
+</html>
